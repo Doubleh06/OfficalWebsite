@@ -22,5 +22,4 @@ public class HomeController extends BaseController {
         model.addAttribute("permissions", jsonArray.toString());
         return "main";
     }
-
 }
