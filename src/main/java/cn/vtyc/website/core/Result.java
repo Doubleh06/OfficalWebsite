@@ -10,6 +10,12 @@ public class Result {
 
     private String msg;
 
+    private String navImg;
+
+    private Integer total;
+
+    private String pageHead;
+
     public Result() {
         this(ErrorCode.OK);
     }
@@ -22,6 +28,19 @@ public class Result {
     public Result(ErrorCode httpCode) {
         this.code = httpCode.code();
         this.msg = httpCode.message();
+    }
+
+    public Result(String navImg,String pageHead,ErrorCode httpCode) {
+        this.code = httpCode.code();
+        this.msg = httpCode.message();
+        this.navImg = navImg;
+        this.pageHead = pageHead;
+    }
+    public Result(String navImg,Integer total,ErrorCode httpCode) {
+        this.code = httpCode.code();
+        this.msg = httpCode.message();
+        this.navImg = navImg;
+        this.total = total;
     }
 
     public int getCode() {
@@ -40,4 +59,27 @@ public class Result {
         this.msg = msg;
     }
 
+    public String getNavImg() {
+        return navImg;
+    }
+
+    public void setNavImg(String navImg) {
+        this.navImg = navImg;
+    }
+
+    public Integer getTotal() {
+        return total;
+    }
+
+    public void setTotal(Integer total) {
+        this.total = total;
+    }
+
+    public String getPageHead() {
+        return pageHead;
+    }
+
+    public void setPageHead(String pageHead) {
+        this.pageHead = pageHead;
+    }
 }

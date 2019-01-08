@@ -7,6 +7,8 @@ package cn.vtyc.website.core;
 public class JSONResult extends Result {
 
     private Object obj;
+    private String navImg;
+    private String pageHead;
 
     public JSONResult() {
         super();
@@ -31,7 +33,14 @@ public class JSONResult extends Result {
         super(ErrorCode.OK);
         this.obj = obj;
     }
-
+    public JSONResult(String navImg ,String pageHead,Object obj) {
+        super(navImg,pageHead,ErrorCode.OK);
+        this.obj = obj;
+    }
+    public JSONResult(String navImg,Integer total ,Object obj) {
+        super(navImg,total,ErrorCode.OK);
+        this.obj = obj;
+    }
     public Object getObj() {
         return obj;
     }
@@ -39,4 +48,5 @@ public class JSONResult extends Result {
     public void setObj(Object obj) {
         this.obj = obj;
     }
+
 }

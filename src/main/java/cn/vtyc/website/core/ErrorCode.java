@@ -33,15 +33,19 @@ public enum ErrorCode {
 
     INTERNAL_SERVER_ERROR(-1, "服务器内部错误"),
 
-    OVER_BOTNUM(-3, "超过分配机器人数量"),
+    HR_INTERFACE_ERROR(-3, "访问hr接口异常"),
 
-    REPEAT_NUM(6, "导入电话均是重复"),
+    IMPORTEXCEL_ERROR(-4, "导入excel失败"),
 
-    TEMPLET_ERROR(-4, "短信模板异常"),
+    FILE_NOT_FOUND(-5, "文件未找到"),
 
-    HR_INTERFACE_ERROR(-5, "访问hr接口异常"),
+    FILE_UPLOAD_FAIL(-6, "上传失败"),
 
-    IMPORTEXCEL_ERROR(4, "导入excel失败");
+    FILENAME_ERROR(-7, "文件名有误"),
+
+    CANNOT_CREAT_UPLOADFILE(-8,"无法创建上传目录");
+
+
 
     int code;
 
