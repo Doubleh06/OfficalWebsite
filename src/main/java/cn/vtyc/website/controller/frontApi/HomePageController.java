@@ -6,8 +6,10 @@ import cn.vtyc.website.core.JSONResult;
 import cn.vtyc.website.core.Result;
 import cn.vtyc.website.dao.front.home.*;
 import cn.vtyc.website.entity.front.Home;
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -30,13 +32,14 @@ public class HomePageController extends BaseController {
 
     @RequestMapping(value = "/home")
     @ResponseBody
-    public Result home() {
+    public Result home(@RequestBody JSONObject jsonObject) {
+        String locales = jsonObject.getString("locales");
         Home home = new Home();
         home.setHomeCarousel(homeCarouselDao.selectAll());
-        home.setHomeGallery(homeGalleryDao.selectAll());
-        home.setHomeClient(homeClientDao.selectAll());
-        home.setHomeIntroduce(homeIntroduceDao.selectByPrimaryKey(1));
-        home.setHomeBox(homeBoxDao.selectAll());
+        home.setHomeGallery(homeGalleryDao.getHomeGalleryByLocales(locales));
+        home.setHomeClient(homeClientDao.getHomeClientByLocales(locales));
+        home.setHomeIntroduce(homeIntroduceDao.getHomeIntroduceByLocales(locales).get(0));
+        home.setHomeBox(homeBoxDao.getHomeBoxByLocales(locales));
         return new JSONResult(home);
     }
 

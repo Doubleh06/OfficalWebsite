@@ -8,4 +8,5 @@ public class HomeIntroduce extends BaseEntity {
     private String img;
     private String h2;
     private String h4;
+    private String locales;
 }

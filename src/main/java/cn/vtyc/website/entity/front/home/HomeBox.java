@@ -9,4 +9,5 @@ public class HomeBox extends BaseEntity {
     private String icon;
     private String h2;
     private String h3;
+    private String locales;
 }

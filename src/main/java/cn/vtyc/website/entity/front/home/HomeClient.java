@@ -8,4 +8,5 @@ public class HomeClient extends BaseEntity {
     private String h3;
     private String span;
     private String p;
+    private String locales;
 }

@@ -10,4 +10,5 @@ public class HomeGallery extends BaseEntity {
     private String h4;
     private String a;
     private String aLabel;
+    private String locales;
 }
