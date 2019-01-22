@@ -46,14 +46,6 @@
             </div>
         </div>
         <hr/>
-        <#--<div class="row">-->
-            <#--<div class="col-md-6">-->
-                <#--数赢云-->
-            <#--</div>-->
-            <#--<div class="col-md-6 text-right">-->
-               <#--<small>© 2018-2018</small>-->
-            <#--</div>-->
-        <#--</div>-->
     </div>
 
 </body>

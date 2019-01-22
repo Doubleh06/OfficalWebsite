@@ -15,8 +15,8 @@ public interface PhotoWallDao extends BaseDao<PhotoWall> {
 //    @Select("select * from photo_wall where type = ${type} limit ${currentPage} , ${pageSize}")
 //    List<PhotoWall> getPhotoWallByType(@Param("type") Integer type, @Param("currentPage") Integer currentPage, @Param("pageSize") Integer pageSize);
 
-    @Select("select url from photo_wall where type = ${type} limit ${currentPage} , ${pageSize}")
-    List<String> getPhotoWallByType(@Param("type") Integer type, @Param("currentPage") Integer currentPage, @Param("pageSize") Integer pageSize);
+    @Select("select * from photo_wall where type = ${type} limit ${currentPage} , ${pageSize}")
+    List<PhotoWall> getPhotoWallByType(@Param("type") Integer type, @Param("currentPage") Integer currentPage, @Param("pageSize") Integer pageSize);
 
     @Select("select count(*) from photo_wall where type = ${type} ")
     Integer getTotalByType(@Param("type")Integer type);

@@ -6,4 +6,8 @@ import lombok.Data;
 @Data
 public class HomeCarousel extends BaseEntity {
     private String img;
+
+//    public HomeCarousel(String img) {
+//        this.img = img;
+//    }
 }

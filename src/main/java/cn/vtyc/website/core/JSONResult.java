@@ -7,8 +7,6 @@ package cn.vtyc.website.core;
 public class JSONResult extends Result {
 
     private Object obj;
-    private String navImg;
-    private String pageHead;
 
     public JSONResult() {
         super();

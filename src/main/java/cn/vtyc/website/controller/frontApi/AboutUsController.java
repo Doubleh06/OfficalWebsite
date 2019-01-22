@@ -2,13 +2,12 @@ package cn.vtyc.website.controller.frontApi;
 
 
 import cn.vtyc.website.controller.BaseController;
+import cn.vtyc.website.core.CompanyDynamicsJSONResult;
 import cn.vtyc.website.core.JSONResult;
+import cn.vtyc.website.core.Pagination;
 import cn.vtyc.website.core.Result;
-import cn.vtyc.website.dao.front.CompanyIntroduceDao;
+import cn.vtyc.website.dao.front.*;
 
-import cn.vtyc.website.dao.front.ContactUsDao;
-import cn.vtyc.website.dao.front.EndorsementDao;
-import cn.vtyc.website.dao.front.PageNavDao;
 import cn.vtyc.website.entity.front.CompanyIntroduce;
 import cn.vtyc.website.entity.front.ContactUs;
 import cn.vtyc.website.entity.front.Endorsement;
@@ -36,6 +35,8 @@ public class AboutUsController extends BaseController {
     private ContactUsDao contactUsDao;
     @Autowired
     private EndorsementDao endorsementDao;
+    @Autowired
+    private CompanyDynamicsDao companyDynamicsDao;
 
 
     @RequestMapping(value = "/companyIntroduce")
@@ -60,5 +61,17 @@ public class AboutUsController extends BaseController {
         String locales = jsonObject.getString("locales");
         PageNav pageNav = pageNavDao.getImgByPageName("endorsement",locales);
         return new JSONResult(pageNav.getImg(),pageNav.getPageHead(), endorsementDao.getEndorsementByLocales(locales).get(0));
+    }
+    @RequestMapping(value = "/companyDynamics")
+    @ResponseBody
+    public CompanyDynamicsJSONResult companyDynamics(@RequestBody JSONObject jsonObject) {
+        String locales = jsonObject.getString("locales");
+        Integer currentPage = jsonObject.getInteger("currentPage");
+        Integer pageSize = jsonObject.getInteger("pageSize");
+        PageNav pageNav = pageNavDao.getImgByPageName("companyDynamics",locales);
+        //计算总数
+        Integer total = companyDynamicsDao.getCompanyDynamicsTotalByLocales(locales);
+        Pagination pagination = new Pagination(currentPage,0,total);
+        return new CompanyDynamicsJSONResult(companyDynamicsDao.getCompanyDynamicsByLocales(locales,(currentPage-1)*pageSize,pageSize),pageNav.getImg(),pageNav.getPageHead(),pagination);
     }
 }

@@ -14,5 +14,6 @@ import lombok.Data;
 public class Faq extends BaseEntity {
     private String question;
     private String answer;
+    private String locales;
 
 }

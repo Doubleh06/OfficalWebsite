@@ -11,8 +11,11 @@ import lombok.Data;
  * @date 2018/4/19
  */
 @Data
-public class Questionnaire extends BaseEntity {
-    private String name;
+public class CompanyDynamics extends BaseEntity {
+    private String title;
+    private String content;
+    private String like;
     private String locales;
+    private String href;
 
 }

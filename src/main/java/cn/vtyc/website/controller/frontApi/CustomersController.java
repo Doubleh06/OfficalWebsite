@@ -40,7 +40,7 @@ public class CustomersController extends BaseController {
     public Result questionnaire(@RequestBody JSONObject jsonObject) {
         String locales = jsonObject.getString("locales");
         PageNav pageNav = pageNavDao.getImgByPageName("questionnaire",locales);
-        return new JSONResult(pageNav.getImg(),pageNav.getPageHead(),questionnaireDao.selectAll());
+        return new JSONResult(pageNav.getImg(),pageNav.getPageHead(),questionnaireDao.getQuestionnaireByLocales(locales));
     }
     @RequestMapping(value = "/czCapability")
     @ResponseBody
