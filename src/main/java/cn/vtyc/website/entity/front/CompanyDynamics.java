@@ -14,8 +14,10 @@ import lombok.Data;
 public class CompanyDynamics extends BaseEntity {
     private String title;
     private String content;
-    private String like;
+    private String contentDetail;
+    private String likes;
     private String locales;
     private String href;
+    private String img;
 
 }

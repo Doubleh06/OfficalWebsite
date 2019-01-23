@@ -8,10 +8,7 @@ import cn.vtyc.website.core.Pagination;
 import cn.vtyc.website.core.Result;
 import cn.vtyc.website.dao.front.*;
 
-import cn.vtyc.website.entity.front.CompanyIntroduce;
-import cn.vtyc.website.entity.front.ContactUs;
-import cn.vtyc.website.entity.front.Endorsement;
-import cn.vtyc.website.entity.front.PageNav;
+import cn.vtyc.website.entity.front.*;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -74,4 +71,15 @@ public class AboutUsController extends BaseController {
         Pagination pagination = new Pagination(currentPage,0,total);
         return new CompanyDynamicsJSONResult(companyDynamicsDao.getCompanyDynamicsByLocales(locales,(currentPage-1)*pageSize,pageSize),pageNav.getImg(),pageNav.getPageHead(),pagination);
     }
+    @RequestMapping(value = "/companyDynamics/detail")
+    @ResponseBody
+    public Result companyDynamicsDetail(@RequestBody JSONObject jsonObject) {
+        String locales = jsonObject.getString("locales");
+        Integer id = jsonObject.getInteger("id");
+        PageNav pageNav = pageNavDao.getImgByPageName("companyDynamicsDetail",locales);
+        CompanyDynamics companyDynamics = new CompanyDynamics();
+        companyDynamics.setId(id);
+        return new JSONResult(pageNav.getImg(),pageNav.getPageHead(), companyDynamicsDao.selectByPrimaryKey(companyDynamics));
+    }
+
 }
