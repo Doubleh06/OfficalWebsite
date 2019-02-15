@@ -41,7 +41,7 @@ public class AboutUsController extends BaseController {
     public Result companyIntroduce(@RequestBody JSONObject jsonObject) {
         String locales = jsonObject.getString("locales");
         PageNav pageNav = pageNavDao.getImgByPageName("companyIntroduce",locales);
-        return new JSONResult(pageNav.getImg(),pageNav.getPageHead(), companyIntroduceDao.getCompanyIntroduceByLocales(locales).get(0));
+        return new JSONResult(pageNav.getImg(),pageNav.getPageHead(), companyIntroduceDao.getCompanyIntroduceByLocales(locales));
     }
 
     @RequestMapping(value = "/contactUs")

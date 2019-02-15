@@ -17,4 +17,11 @@ public class PageNav extends BaseEntity {
     private String pageHead;
     private String locales;
 
+    public PageNav() {
+    }
+
+    public PageNav(String pageName, String img) {
+        this.pageName = pageName;
+        this.img = img;
+    }
 }

@@ -12,5 +12,5 @@ import java.util.List;
 @Component
 public interface CompanyIntroduceDao extends BaseDao<CompanyIntroduce> {
     @Select("select * from company_introduce where locales = '${locales}'")
-    List<CompanyIntroduce> getCompanyIntroduceByLocales(@Param("locales")String locales);
+    CompanyIntroduce getCompanyIntroduceByLocales(@Param("locales")String locales);
 }

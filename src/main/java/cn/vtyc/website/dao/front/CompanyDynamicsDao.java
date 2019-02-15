@@ -9,6 +9,7 @@ import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Map;
 
 @Component
 public interface CompanyDynamicsDao extends BaseDao<CompanyDynamics> {
@@ -17,5 +18,8 @@ public interface CompanyDynamicsDao extends BaseDao<CompanyDynamics> {
 
     @Select("select count(*) from company_dynamics where locales = '${locales}'")
     Integer getCompanyDynamicsTotalByLocales(@Param("locales") String locales);
+
+    @Select("select * from company_dynamics ${sql}")
+    List<CompanyDynamics> selectCompanyDynamicsList(@Param("sql") String sql);
 
 }

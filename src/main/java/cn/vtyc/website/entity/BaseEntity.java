@@ -22,7 +22,8 @@ public class BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-//    /**
+
+    //    /**
 //     * 这个字段不允许更新
 //     */
 //    @Column(updatable = false)

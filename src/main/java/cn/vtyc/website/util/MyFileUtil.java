@@ -9,13 +9,13 @@ import java.util.Date;
 
 public class MyFileUtil {
 
-    public static String saveFile(MultipartFile file) {
+    public static String saveFile(MultipartFile file,String direct) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd-HHmmssSSS");
         // 判断文件是否为空
         if (!file.isEmpty()) {
             try {
                 Environment environment = SpringContextUtil.getBean(Environment.class);
-                String imgPath = environment.getProperty("static.img.path");
+                String imgPath = environment.getProperty("static.img.path")+direct;
                 String newPicName = "";
                 if (file.getSize() != 0) {
                     String originalFileNameLeft = file.getOriginalFilename();

@@ -15,4 +15,5 @@ import java.util.List;
 public interface HomeClientDao extends BaseDao<HomeClient> {
     @Select("select * from home_client where locales = '${locales}'")
     List<HomeClient> getHomeClientByLocales(@Param("locales")String locales);
+
 }
