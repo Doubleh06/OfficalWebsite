@@ -12,6 +12,7 @@ import lombok.Data;
  */
 @Data
 public class RecruitmentDetail extends BaseEntity {
+    private Integer recruitmentId;
     private String workTypeDesc;
     private String workType;
     private String workTitleDesc;

@@ -16,4 +16,12 @@ public class Faq extends BaseEntity {
     private String answer;
     private String locales;
 
+    public Faq() {
+    }
+
+    public Faq(Integer id,String question, String answer) {
+        super(id);
+        this.question = question;
+        this.answer = answer;
+    }
 }

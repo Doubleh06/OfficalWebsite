@@ -22,7 +22,12 @@ public class BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    public BaseEntity(Integer id) {
+        this.id = id;
+    }
 
+    public BaseEntity() {
+    }
     //    /**
 //     * 这个字段不允许更新
 //     */
