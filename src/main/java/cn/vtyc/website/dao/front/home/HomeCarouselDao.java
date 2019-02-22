@@ -13,9 +13,13 @@ import java.util.List;
 
 @Component
 public interface HomeCarouselDao extends BaseDao<HomeCarousel> {
-    @Delete("delete from home_carousel where img_source_name = '${imgSourceName}' and uuid = '${uuid}'")
-    void deleteFile(@Param("imgSourceName") String imgSourceName, @Param("uuid") String uuid);
+    @Delete("delete from home_carousel where img_source_name = '${imgSourceName}' ")
+    void deleteFile(@Param("imgSourceName") String imgSourceName);
 
     @Select("select img_path from home_carousel")
     List<String> getImgPathList();
+
+    @Select("select * from home_carousel where img_source_name = '${imgSourceName}' ")
+    List<HomeCarousel> getAllByImgSourceMame (@Param("imgSourceName") String imgSourceName);
+
 }

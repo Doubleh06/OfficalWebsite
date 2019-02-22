@@ -121,7 +121,12 @@
         if(carousels!=null&&""!=carousels){
             var carousel = carousels.split(",");
             for(var i=0;i<carousel.length;i++){
-                var mockFile = {name : carousel[i],size:10240, height:150,width:150};
+                var mockFile = {
+                    name : carousel[i],
+                    size:10240,
+                    height:150,
+                    width:150,
+                    type: '.gif,.jpg,.png,.jpeg'};
                 myDropzone.options.addedfile.call(myDropzone,mockFile);
                 myDropzone.options.thumbnail.call(myDropzone,mockFile,carousel[i]);
             }

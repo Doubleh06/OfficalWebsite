@@ -1,10 +1,13 @@
 package cn.vtyc.website.controller.file;
 
+import cn.vtyc.website.core.JSONResult;
+import cn.vtyc.website.core.Result;
 import cn.vtyc.website.entity.payload.UploadFileResponse;
 import cn.vtyc.website.service.file.FileStorageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -27,6 +30,21 @@ public class FileController {
 
     @Autowired
     private FileStorageService fileStorageService;
+    @Autowired
+    private Environment environment;
+
+    @PostMapping("/uploadFiles")
+    @ResponseBody
+    public Result myUploadFile(@RequestParam("file") MultipartFile file) {
+        String path = environment.getProperty("static.img.path")+"\\home";
+        String fileName = fileStorageService.storeFile(file,path);
+
+        String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/downloadFile/").path(fileName).toUriString();
+
+        return new JSONResult(new UploadFileResponse(fileName, fileDownloadUri, file.getContentType(), file.getSize()));
+//        return new UploadFileResponse(fileName, fileDownloadUri, file.getContentType(), file.getSize());
+    }
+
 
     @PostMapping("/uploadFile")
     public UploadFileResponse uploadFile(@RequestParam("file") MultipartFile file) {

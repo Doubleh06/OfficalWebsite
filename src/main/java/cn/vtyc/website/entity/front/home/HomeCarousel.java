@@ -10,6 +10,9 @@ public class HomeCarousel extends BaseEntity {
     private String imgPath;
     private String imgSourceName;
 
+    public HomeCarousel() {
+    }
+
     public HomeCarousel(String img, String uuid, String imgPath, String imgSourceName) {
         this.img = img;
         this.uuid = uuid;

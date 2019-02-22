@@ -17,5 +17,6 @@ public class PhotoWall extends BaseEntity {
     private String href;
     private String urlDetail;
     private String title;
+    private String filename;
 
 }

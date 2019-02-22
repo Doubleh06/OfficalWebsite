@@ -9,6 +9,16 @@ public class HomeGallery extends BaseEntity {
     private String h3;
     private String h4;
     private String a;
-    private String aLabel;
+    private String label;
     private String locales;
+
+    public HomeGallery() {
+    }
+
+    public HomeGallery(Integer id, String h3, String h4, String label) {
+        super(id);
+        this.h3 = h3;
+        this.h4 = h4;
+        this.label = label;
+    }
 }

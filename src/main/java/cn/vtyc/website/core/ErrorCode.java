@@ -43,6 +43,8 @@ public enum ErrorCode {
 
     FILENAME_ERROR(-7, "文件名有误"),
 
+    FILENAME_REPEAT(-9, "文件名重复"),
+
     CANNOT_CREAT_UPLOADFILE(-8,"无法创建上传目录");
 
 
