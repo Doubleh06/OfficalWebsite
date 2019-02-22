@@ -7,33 +7,25 @@ import cn.vtyc.website.core.ErrorCode;
 import cn.vtyc.website.core.JSONResult;
 import cn.vtyc.website.core.Result;
 import cn.vtyc.website.core.jqGrid.JqGridResult;
-import cn.vtyc.website.dao.front.PageNavDao;
 import cn.vtyc.website.dao.front.PhotoWallDao;
 import cn.vtyc.website.dao.front.QuestionnaireDao;
 import cn.vtyc.website.dto.*;
-import cn.vtyc.website.entity.User;
 import cn.vtyc.website.entity.front.PhotoWall;
 import cn.vtyc.website.entity.front.Questionnaire;
-import cn.vtyc.website.entity.front.Recruitment;
-import cn.vtyc.website.entity.front.home.HomeCarousel;
 import cn.vtyc.website.entity.payload.UploadFileResponse;
-import cn.vtyc.website.entity.security.Constants;
 import cn.vtyc.website.service.PhotoWallService;
 import cn.vtyc.website.service.QuestionnaireService;
 import cn.vtyc.website.service.file.FileStorageService;
-import cn.vtyc.website.util.MyFileUtil;
 import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import javax.validation.Valid;
 import java.io.File;
 
 
