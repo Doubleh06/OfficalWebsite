@@ -86,7 +86,7 @@ public class HomePageMaintainController extends BaseController {
             return  new JSONResult(ErrorCode.FILENAME_REPEAT.code(),ErrorCode.FILENAME_REPEAT.message());
         }
         String imgUrl = environment.getProperty("view.img.url")+"/home";
-        String path = environment.getProperty("static.img.path")+"\\home";
+        String path = environment.getProperty("static.img.path")+"/home";
         String fileName = fileStorageService.storeFile(file,path);
         String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/downloadFile/").path(fileName).toUriString();
 

@@ -36,7 +36,7 @@ public class FileController {
     @PostMapping("/uploadFiles")
     @ResponseBody
     public Result myUploadFile(@RequestParam("file") MultipartFile file) {
-        String path = environment.getProperty("static.img.path")+"\\home";
+        String path = environment.getProperty("static.img.path")+"/home";
         String fileName = fileStorageService.storeFile(file,path);
 
         String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/downloadFile/").path(fileName).toUriString();

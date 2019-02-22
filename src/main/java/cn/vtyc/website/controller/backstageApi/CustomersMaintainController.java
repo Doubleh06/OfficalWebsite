@@ -113,7 +113,7 @@ public class CustomersMaintainController extends BaseController {
             return  new JSONResult(ErrorCode.FILENAME_REPEAT.code(),ErrorCode.FILENAME_REPEAT.message());
         }
         String imgUrl = environment.getProperty("view.img.url")+"/customers/headLight";
-        String path = environment.getProperty("static.img.path")+"\\customers\\headLight";
+        String path = environment.getProperty("static.img.path")+"/customers/headLight";
         String fileName = fileStorageService.storeFile(file,path);
         String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/downloadFile/").path(fileName).toUriString();
 
@@ -135,7 +135,7 @@ public class CustomersMaintainController extends BaseController {
             return  new JSONResult(ErrorCode.FILENAME_REPEAT.code(),ErrorCode.FILENAME_REPEAT.message());
         }
         String imgUrl = environment.getProperty("view.img.url")+"/customers/tailLight";
-        String path = environment.getProperty("static.img.path")+"\\customers\\tailLight";
+        String path = environment.getProperty("static.img.path")+"/customers/tailLight";
         String fileName = fileStorageService.storeFile(file,path);
         String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/downloadFile/").path(fileName).toUriString();
 
