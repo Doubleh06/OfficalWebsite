@@ -69,7 +69,7 @@ public class FileController {
     @GetMapping("/downloadFile/{fileName:.+}")
     public ResponseEntity<Resource> downloadFile(@PathVariable String fileName, HttpServletRequest request) {
         // Load file as Resource
-        String path = environment.getProperty("static.img.path")+"/files";
+        String path = environment.getProperty("static.img.path")+"files/";
         Resource resource = fileStorageService.loadFileAsResource(fileName,path);
 
         // Try to determine file's content type
