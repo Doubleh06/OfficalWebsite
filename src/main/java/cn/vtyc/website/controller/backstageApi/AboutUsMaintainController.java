@@ -94,7 +94,7 @@ public class AboutUsMaintainController extends BaseController {
         contactUs2.setAddressDesc(dto.getAddressDesc2());
         contactUs2.setAddress(dto.getAddress2());
         contactUsDao.updateByPrimaryKeySelective(contactUs2);
-        String imgName = MyFileUtil.saveFile(imgUrl,"nav\\");
+        String imgName = MyFileUtil.saveFile(imgUrl,"nav/");
         String url = environment.getProperty("view.img.url");
         url = url + "/" + "nav" + "/"+imgName;
         if (!imgUrl.isEmpty()){
@@ -119,15 +119,15 @@ public class AboutUsMaintainController extends BaseController {
     @RequestMapping(value = "/companyIntroduce/update" ,method =RequestMethod.POST)
     @ResponseBody
     public Result companyIntroduceUpdate(CompanyIntroduceDto dto , MultipartFile imgUrl, MultipartFile czImgUrl, MultipartFile cqImgUrl){
-        String imgName = MyFileUtil.saveFile(imgUrl,"nav\\");
+        String imgName = MyFileUtil.saveFile(imgUrl,"nav/");
         String url = environment.getProperty("view.img.url");
         if (!imgUrl.isEmpty()){
             url = url + "/" + "nav" + "/"+imgName;
             pageNavDao.updateImgByPageName(url,"companyIntroduce");
         }
 
-        String czImgName = MyFileUtil.saveFile(czImgUrl,"aboutUs\\companyIntroduce\\");
-        String cqImgName = MyFileUtil.saveFile(cqImgUrl, "aboutUs\\companyIntroduce\\");
+        String czImgName = MyFileUtil.saveFile(czImgUrl,"aboutUs/companyIntroduce/");
+        String cqImgName = MyFileUtil.saveFile(cqImgUrl, "aboutUs/companyIntroduce/");
         CompanyIntroduce companyIntroduce = new CompanyIntroduce();
         BeanUtils.copyProperties(dto,companyIntroduce);
         if(!czImgName.isEmpty()){

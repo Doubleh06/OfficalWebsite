@@ -234,9 +234,9 @@ public class HomePageMaintainController extends BaseController {
     @RequestMapping(value = "/gallery/update")
     @ResponseBody
     public  Result galleryUpdate(GalleryDto dto, MultipartFile imgUrl0, MultipartFile imgUrl1, MultipartFile imgUrl2){
-        String imgName0 = MyFileUtil.saveFile(imgUrl0,"home\\");
-        String imgName1 = MyFileUtil.saveFile(imgUrl1,"home\\");
-        String imgName2 = MyFileUtil.saveFile(imgUrl2,"home\\");
+        String imgName0 = MyFileUtil.saveFile(imgUrl0,"home/");
+        String imgName1 = MyFileUtil.saveFile(imgUrl1,"home/");
+        String imgName2 = MyFileUtil.saveFile(imgUrl2,"home/");
         String url = environment.getProperty("view.img.url");
         String url0 = url + "/" + "home" + "/"+imgName0;
         String url1 = url + "/" + "home" + "/"+imgName1;
@@ -277,7 +277,7 @@ public class HomePageMaintainController extends BaseController {
     @RequestMapping(value = "/homeIntroduce/update")
     @ResponseBody
     public  Result homeIntroduceUpdate(HomeIntroduceDto dto, MultipartFile imgUrl){
-        String imgName = MyFileUtil.saveFile(imgUrl,"home\\");
+        String imgName = MyFileUtil.saveFile(imgUrl,"home/");
         String url = environment.getProperty("view.img.url");
         String url0 = url + "/" + "home" + "/"+imgName;
         HomeIntroduce homeIntroduce = new HomeIntroduce(dto.getId(),dto.getTitle(),dto.getContent());

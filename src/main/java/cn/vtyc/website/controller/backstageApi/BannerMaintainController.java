@@ -57,7 +57,7 @@ public class BannerMaintainController extends BaseController {
     @RequestMapping(value = "/banner/edit")
     @ResponseBody
     public  Result bannerEdit(BannerDto dto,MultipartFile imgUrl){
-        String imgName = MyFileUtil.saveFile(imgUrl,"nav\\");
+        String imgName = MyFileUtil.saveFile(imgUrl,"nav/");
         String url = environment.getProperty("view.img.url");
         url = url + "/" + "nav" + "/"+imgName;
         if (!imgUrl.isEmpty()){

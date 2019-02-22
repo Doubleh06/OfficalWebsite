@@ -80,7 +80,7 @@ public class CareerMaintainController extends BaseController {
         faqDao.updateByPrimaryKeySelective(faq6);
         faqDao.updateByPrimaryKeySelective(faq7);
 
-        String imgName = MyFileUtil.saveFile(imgUrl,"nav\\");
+        String imgName = MyFileUtil.saveFile(imgUrl,"nav/");
         String url = environment.getProperty("view.img.url");
         url = url + "/" + "nav" + "/"+imgName;
         if (!imgUrl.isEmpty()){
