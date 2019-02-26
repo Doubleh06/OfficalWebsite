@@ -4,7 +4,6 @@ import cn.vtyc.website.core.BusinessException;
 import cn.vtyc.website.core.ErrorCode;
 import cn.vtyc.website.property.FileStorageProperties;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;

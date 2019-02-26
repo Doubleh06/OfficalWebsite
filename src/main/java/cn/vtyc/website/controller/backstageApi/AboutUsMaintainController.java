@@ -174,8 +174,16 @@ public class AboutUsMaintainController extends BaseController {
         model.addAttribute("menus", getMenus("companyDynamics"));
         if (null == id){
             model.addAttribute("companyDynamics",new CompanyDynamics());
+            model.addAttribute("img1","");
+            model.addAttribute("img2","");
+            model.addAttribute("img3","");
         }else {
-            model.addAttribute("companyDynamics",companyDynamicsDao.selectByPrimaryKey(id));
+            CompanyDynamics companyDynamics = companyDynamicsDao.selectByPrimaryKey(id);
+            model.addAttribute("companyDynamics",companyDynamics);
+            System.out.println(companyDynamics.getImg());
+            model.addAttribute("img1",companyDynamics.getImg().split("\\|",-1)[0]);
+            model.addAttribute("img2",companyDynamics.getImg().split("\\|",-1)[1]);
+            model.addAttribute("img3",companyDynamics.getImg().split("\\|",-1)[2]);
         }
 
         return "/aboutUs/companyDynamics/edit";
@@ -183,14 +191,39 @@ public class AboutUsMaintainController extends BaseController {
 
     @RequestMapping(value = "/companyDynamics/edit")
     @ResponseBody
-    public  Result companyDynamicsEdit(CompanyDynamicsDto dto){
+    public Result companyDynamicsEdit(CompanyDynamicsDto dto, MultipartFile imgUrl1, MultipartFile imgUrl2, MultipartFile imgUrl3) {
+        String url = environment.getProperty("view.img.url");
+        String img = "";
+        if (!imgUrl1.isEmpty()){
+            String imgName1 = MyFileUtil.saveFile(imgUrl1,"aboutUs/companyDynamicsDetail/");
+            String url1 = url + "/" + "aboutUs/companyDynamicsDetail" + "/"+imgName1;
+            img+=url1+"|";
+        }else{
+            img+="|";
+        }
+        if (!imgUrl2.isEmpty()){
+            String imgName2 = MyFileUtil.saveFile(imgUrl2,"aboutUs/companyDynamicsDetail/");
+            String url2 = url + "/" + "aboutUs/companyDynamicsDetail" + "/"+imgName2;
+            img+=url2+"|";
+        }else{
+            img+="|";
+        }
+        if (!imgUrl3.isEmpty()){
+            String imgName3 = MyFileUtil.saveFile(imgUrl3,"aboutUs/companyDynamicsDetail/");
+            String url3 = url + "/" + "aboutUs/companyDynamicsDetail" + "/"+imgName3;
+            img+=url3+"|";
+        }else{
+            img+="|";
+        }
+
         CompanyDynamics companyDynamics = new CompanyDynamics();
-        BeanUtils.copyProperties(dto,companyDynamics);
-        if (null == dto.getId()){
+        BeanUtils.copyProperties(dto, companyDynamics);
+        companyDynamics.setImg(img);
+        if (null == dto.getId()) {
             //新增
             companyDynamics.setHref("/aboutUs/companyDynamics/detail?id=");
             companyDynamicsDao.insert(companyDynamics);
-        }else{
+        } else {
             companyDynamicsDao.updateByPrimaryKeySelective(companyDynamics);
         }
         return OK;

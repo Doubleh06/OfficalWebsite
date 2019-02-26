@@ -87,6 +87,60 @@
                                             <textarea id="contentDetail" name="contentDetail"  style="width: 100%;height: 100px">${companyDynamics.contentDetail!}</textarea>
                                         </div>
                                     </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">图片1</label>
+                                            <div class="col-sm-10">
+                                                <div class="uploadPic" title="1920 x 400的图片,大小不超过100k">
+                                                    <div class="upload pic_img">
+                                                        <img  class="file-pic-img" src="${img1!}"
+                                                              id="previewImgUrl1" name="previewImgUrl1" width="100%" height="100%"/>
+                                                        <i class="icon icon_img mt30 mb10"></i>
+                                                        <p>暂时未定大小
+                                                        </p>
+                                                    </div>
+                                                    <div class="uploadPic_btn_box">
+                                                        <input type="file"  name="imgUrl1" id="imgUrl1" data-file_type="image/jpg|image/png|image/jpeg" style="display: none" data-max_size="2024000">
+                                                        <div class="btn_upload uploadPicBtn uploadpic">重新上传</div><div class="btn_upload uploadPicBtn_del delpic0">删除</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">图片2</label>
+                                        <div class="col-sm-10">
+                                            <div class="uploadPic" title="1920 x 400的图片,大小不超过100k">
+                                                <div class="upload pic_img">
+                                                    <img  class="file-pic-img" src="${img2!}"
+                                                          id="previewImgUrl2" name="previewImgUrl2" width="100%" height="100%"/>
+                                                    <i class="icon icon_img mt30 mb10"></i>
+                                                    <p>暂时未定大小
+                                                    </p>
+                                                </div>
+                                                <div class="uploadPic_btn_box">
+                                                    <input type="file"  name="imgUrl2" id="imgUrl2" data-file_type="image/jpg|image/png|image/jpeg" style="display: none" data-max_size="2024000">
+                                                    <div class="btn_upload uploadPicBtn uploadpic">重新上传</div><div class="btn_upload uploadPicBtn_del delpic0">删除</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">图片3</label>
+                                        <div class="col-sm-10">
+                                            <div class="uploadPic" title="1920 x 400的图片,大小不超过100k">
+                                                <div class="upload pic_img">
+                                                    <img  class="file-pic-img" src="${img3!}"
+                                                          id="previewImgUrl3" name="previewImgUrl3" width="100%" height="100%"/>
+                                                    <i class="icon icon_img mt30 mb10"></i>
+                                                    <p>暂时未定大小
+                                                    </p>
+                                                </div>
+                                                <div class="uploadPic_btn_box">
+                                                    <input type="file"  name="imgUrl3" id="imgUrl3" data-file_type="image/jpg|image/png|image/jpeg" style="display: none" data-max_size="2024000">
+                                                    <div class="btn_upload uploadPicBtn uploadpic">重新上传</div><div class="btn_upload uploadPicBtn_del delpic0">删除</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                 </form>
                                 <br/>
@@ -107,31 +161,10 @@
 <script type="text/javascript">
 
     $(document).ready(function(){
-        // $("#locales").change(function () {
-        //     $.ajax({
-        //         url:"/backstageApi/aboutUs/companyIntroduce/changeLocales?locales="+$("#locales").val(),
-        //         type: 'GET',
-        //         contentType: "application/json",
-        //         success:function (r) {
-        //             var data = r.obj;
-        //             console.log(data);
-        //             $("#id").val(data.id);
-        //             $("#companyLabel").val(data.companyLabel);
-        //             $("#introduce").val(data.introduce);
-        //             $("#companyLabel").val(data.companyLabel);
-        //             $("#czCompanyLabel").val(data.czCompanyLabel);
-        //             $("#czCompany").val(data.czCompany);
-        //             $("#cqCompanyLabel").val(data.cqCompanyLabel);
-        //             $("#cqCompany").val(data.cqCompany);
-        //
-        //
-        //
-        //         }
-        //     })
-        // });
-        fileplugin.change('#imgUrl', '#previewImgUrl', null, $('#previewImgUrl').prop('src'));
-        fileplugin.change('#czImgUrl', '#czPreviewImgUrl', null, $('#czPreviewImgUrl').prop('src'));
-        fileplugin.change('#cqImgUrl', '#cqPreviewImgUrl', null, $('#cqPreviewImgUrl').prop('src'));
+
+        fileplugin.change('#imgUrl1', '#previewImgUrl1', null, $('#previewImgUrl1').prop('src'));
+        fileplugin.change('#imgUrl2', '#previewImgUrl2', null, $('#previewImgUrl2').prop('src'));
+        fileplugin.change('#imgUrl3', '#previewImgUrl3', null, $('#previewImgUrl3').prop('src'));
 
         //上传图片控件上新增的上传和删除功能按钮展示
 
