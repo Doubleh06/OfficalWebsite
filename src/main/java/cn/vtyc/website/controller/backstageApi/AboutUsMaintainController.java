@@ -193,7 +193,12 @@ public class AboutUsMaintainController extends BaseController {
     public Result companyDynamicsEdit(CompanyDynamicsDto dto, MultipartFile imgUrl1, MultipartFile imgUrl2, MultipartFile imgUrl3) {
         String url = environment.getProperty("view.img.url");
         String img = "";
-        String[] oldImgArr = companyDynamicsDao.selectByPrimaryKey(dto.getId()).getImg().split("\\|",-1);
+        String[] oldImgArr ;
+        if (null == dto.getId()) {
+            oldImgArr = "||".split("\\|",-1);
+        }else{
+            oldImgArr = companyDynamicsDao.selectByPrimaryKey(dto.getId()).getImg().split("\\|",-1);
+        }
         if (!imgUrl1.isEmpty()){
             String imgName1 = MyFileUtil.saveFile(imgUrl1,"aboutUs/companyDynamicsDetail/");
             String url1 = url + "/" + "aboutUs/companyDynamicsDetail" + "/"+imgName1;
